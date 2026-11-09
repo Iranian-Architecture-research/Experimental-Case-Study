@@ -1,297 +1,242 @@
-﻿@prefix ia: <https://example.org/iranian_architecture/thesaurus/> .
+﻿@prefix aat: <http://vocab.getty.edu/aat/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ia: <https://example.org/iranian_architecture/thesaurus/> .
+@prefix lcsh: <http://id.loc.gov/authorities/subjects/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix wd: <https://www.wikidata.org/entity/> .
+@prefix iconclass: <https://iconclass.org/> .
 
 # Replace the example.org base with the project's persistent namespace before publication.
 
-ia:scheme
-    a skos:ConceptScheme ;
+ia:scheme a skos:ConceptScheme ;
     dcterms:title "Iranian Architecture Thesaurus"@en, "واژگان معماری ایران"@fa ;
-    dcterms:description "A small, multilingual starter vocabulary for organizing Iranian architecture resources."@en,
-        "واژگان آغازین کوچک و چندزبانه برای سازمان‌دهی منابع معماری ایران."@fa ;
-    skos:hasTopConcept ia:construction_techniques, ia:building_materials,
-        ia:building_use, ia:building_types, ia:architectural_components,
-        ia:architectural_forms, ia:vaulting_systems, ia:pre_islamic_styles,
-        ia:islamic_styles .
+    dcterms:description "A small, multilingual starter vocabulary for organizing Iranian architecture resources."@en, "واژگان آغازین کوچک و چندزبانه برای سازمان‌دهی منابع معماری ایران."@fa ;
+    skos:hasTopConcept ia:construction_techniques, ia:building_materials, ia:building_use, ia:building_types, ia:architectural_components, ia:architectural_forms, ia:vaulting_systems, ia:pre_islamic_styles, ia:islamic_styles .
 
-ia:technique_facet
-    a skos:Collection ;
+ia:technique_facet a skos:Collection ;
     skos:prefLabel "Technique"@en, "تکنیک"@fa ;
     skos:member ia:construction_techniques .
 
-ia:materials_facet
-    a skos:Collection ;
+ia:materials_facet a skos:Collection ;
     skos:prefLabel "Materials and substances"@en, "متریال و مصالح"@fa ;
     skos:member ia:building_materials .
 
-ia:use_facet
-    a skos:Collection ;
+ia:use_facet a skos:Collection ;
     skos:prefLabel "Use"@en, "کاربرد"@fa ;
     skos:member ia:building_use .
 
-ia:elements_facet
-    a skos:Collection ;
+ia:elements_facet a skos:Collection ;
     skos:prefLabel "Elements and components"@en, "المان‌ها و اجزاء"@fa ;
-    skos:member ia:building_types, ia:architectural_components, ia:architectural_forms,
-        ia:vaulting_systems .
+    skos:member ia:building_types, ia:architectural_components, ia:architectural_forms, ia:vaulting_systems .
 
-ia:styles_facet
-    a skos:Collection ;
+ia:styles_facet a skos:Collection ;
     skos:prefLabel "Styles and periods"@en, "سبک و دوره"@fa ;
     skos:member ia:pre_islamic_styles, ia:islamic_styles .
 
-ia:construction_techniques
-    a skos:Concept ;
+ia:construction_techniques a skos:Concept ;
     skos:inScheme ia:scheme ;
-    skos:prefLabel "Construction techniques"@en, "فنون ساخت"@fa ;
-    skos:narrower ia:bricklaying, ia:tilework, ia:vault_construction,
-        ia:dome_construction, ia:muqarnas_construction .
+    skos:prefLabel "Construction techniques"@en, "فنون ساخت"@fa .
 
-ia:bricklaying
-    a skos:Concept ;
+ia:bricklaying a skos:Concept ;
     skos:inScheme ia:scheme ;
     skos:prefLabel "Bricklaying"@en, "آجرکاری"@fa ;
     skos:broader ia:construction_techniques .
 
-ia:tilework
-    a skos:Concept ;
+ia:tilework a skos:Concept ;
     skos:inScheme ia:scheme ;
     skos:prefLabel "Tilework"@en, "کاشی‌کاری"@fa ;
     skos:broader ia:construction_techniques .
 
-ia:vault_construction
-    a skos:Concept ;
+ia:vault_construction a skos:Concept ;
     skos:inScheme ia:scheme ;
     skos:prefLabel "Vault construction"@en, "اجرای طاق"@fa ;
     skos:broader ia:construction_techniques .
 
-ia:dome_construction
-    a skos:Concept ;
+ia:dome_construction a skos:Concept ;
     skos:inScheme ia:scheme ;
     skos:prefLabel "Dome construction"@en, "اجرای گنبد"@fa ;
     skos:broader ia:construction_techniques .
 
-ia:muqarnas_construction
-    a skos:Concept ;
+ia:muqarnas_construction a skos:Concept ;
     skos:inScheme ia:scheme ;
     skos:prefLabel "Muqarnas construction"@en, "اجرای مقرنس"@fa ;
     skos:broader ia:construction_techniques ;
     skos:related ia:muqarnas .
 
-ia:building_materials
-    a skos:Concept ;
+ia:building_materials a skos:Concept ;
     skos:inScheme ia:scheme ;
-    skos:prefLabel "Building materials"@en, "مصالح ساختمانی"@fa ;
-    skos:narrower ia:brick, ia:stone, ia:tile, ia:gypsum, ia:wood, ia:adobe .
+    skos:prefLabel "Building materials"@en, "مصالح ساختمانی"@fa .
 
-ia:brick
-    a skos:Concept ;
+ia:brick a skos:Concept ;
     skos:inScheme ia:scheme ;
     skos:prefLabel "Brick"@en, "آجر"@fa ;
-    skos:broader ia:building_materials .
+    skos:broader ia:building_materials ;
+    skos:exactMatch wd:Q40089, lcsh:sh85016808, aat:300010463 .
 
-ia:stone
-    a skos:Concept ;
+ia:stone a skos:Concept ;
     skos:inScheme ia:scheme ;
     skos:prefLabel "Stone"@en, "سنگ"@fa ;
     skos:broader ia:building_materials .
 
-ia:tile
-    a skos:Concept ;
+ia:tile a skos:Concept ;
     skos:inScheme ia:scheme ;
     skos:prefLabel "Architectural tile"@en, "کاشی"@fa ;
     skos:broader ia:building_materials .
 
-ia:gypsum
-    a skos:Concept ;
+ia:gypsum a skos:Concept ;
     skos:inScheme ia:scheme ;
     skos:prefLabel "Gypsum"@en, "گچ"@fa ;
     skos:broader ia:building_materials .
 
-ia:wood
-    a skos:Concept ;
+ia:wood a skos:Concept ;
     skos:inScheme ia:scheme ;
     skos:prefLabel "Wood"@en, "چوب"@fa ;
     skos:broader ia:building_materials .
 
-ia:adobe
-    a skos:Concept ;
+ia:adobe a skos:Concept ;
     skos:inScheme ia:scheme ;
     skos:prefLabel "Adobe"@en, "خشت"@fa ;
     skos:broader ia:building_materials .
 
-ia:building_use
-    a skos:Concept ;
+ia:building_use a skos:Concept ;
     skos:inScheme ia:scheme ;
-    skos:prefLabel "Building use"@en, "کاربری بنا"@fa ;
-    skos:narrower ia:worship, ia:commerce, ia:residence, ia:recreation .
+    skos:prefLabel "Building use"@en, "کاربری بنا"@fa .
 
-ia:worship
-    a skos:Concept ;
+ia:worship a skos:Concept ;
     skos:inScheme ia:scheme ;
     skos:prefLabel "Worship"@en, "نیایش"@fa ;
     skos:broader ia:building_use .
 
-ia:commerce
-    a skos:Concept ;
+ia:commerce a skos:Concept ;
     skos:inScheme ia:scheme ;
     skos:prefLabel "Commerce"@en, "تجارت"@fa ;
     skos:broader ia:building_use .
 
-ia:residence
-    a skos:Concept ;
+ia:residence a skos:Concept ;
     skos:inScheme ia:scheme ;
     skos:prefLabel "Residence"@en, "سکونت"@fa ;
     skos:broader ia:building_use .
 
-ia:recreation
-    a skos:Concept ;
+ia:recreation a skos:Concept ;
     skos:inScheme ia:scheme ;
     skos:prefLabel "Recreation and leisure"@en, "فراغت و تفرج"@fa ;
     skos:broader ia:building_use .
 
-ia:building_types
-    a skos:Concept ;
+ia:building_types a skos:Concept ;
     skos:inScheme ia:scheme ;
-    skos:prefLabel "Building types"@en, "گونه‌های بنا"@fa ;
-    skos:narrower ia:mosque, ia:caravanserai, ia:persian_garden .
+    skos:prefLabel "Building types"@en, "گونه‌های بنا"@fa .
 
-ia:mosque
-    a skos:Concept ;
+ia:mosque a skos:Concept ;
     skos:inScheme ia:scheme ;
     skos:prefLabel "Mosque"@en, "مسجد"@fa ;
     skos:broader ia:building_types ;
     skos:related ia:worship .
 
-ia:caravanserai
-    a skos:Concept ;
+ia:caravanserai a skos:Concept ;
     skos:inScheme ia:scheme ;
     skos:prefLabel "Caravanserai"@en, "کاروانسرا"@fa ;
     skos:broader ia:building_types ;
     skos:related ia:commerce .
 
-ia:persian_garden
-    a skos:Concept ;
+ia:persian_garden a skos:Concept ;
     skos:inScheme ia:scheme ;
     skos:prefLabel "Persian garden"@en, "باغ ایرانی"@fa ;
     skos:broader ia:building_types ;
     skos:related ia:recreation .
 
-ia:architectural_components
-    a skos:Concept ;
+ia:architectural_components a skos:Concept ;
     skos:inScheme ia:scheme ;
-    skos:prefLabel "Architectural components"@en, "اجزاء معماری"@fa ;
-    skos:narrower ia:iwan, ia:dome, ia:muqarnas, ia:pishtaq, ia:courtyard .
+    skos:prefLabel "Architectural components"@en, "اجزاء معماری"@fa .
 
-ia:iwan
-    a skos:Concept ;
+ia:iwan a skos:Concept ;
     skos:inScheme ia:scheme ;
     skos:prefLabel "Iwan"@en, "ایوان"@fa ;
     skos:altLabel "Eyvān"@en ;
     skos:broader ia:architectural_components .
 
-ia:dome
-    a skos:Concept ;
+ia:dome a skos:Concept ;
     skos:inScheme ia:scheme ;
     skos:prefLabel "Dome"@en, "گنبد"@fa ;
-    skos:broader ia:architectural_components .
+    skos:broader ia:architectural_components ;
+    skos:exactMatch wd:Q12493, lcsh:sh85038905, aat:300001280, iconclass:48C1623 ;
+     .
 
-ia:muqarnas
-    a skos:Concept ;
+ia:muqarnas a skos:Concept ;
     skos:inScheme ia:scheme ;
     skos:prefLabel "Muqarnas"@en, "مقرنس"@fa ;
-    skos:scopeNote "A three-dimensional ornamental architectural element; it may also be analyzed as a surface system."@en,
-        "عنصر تزیینی سه‌بعدی معماری که می‌تواند به‌عنوان سامانه‌ای سطحی نیز تحلیل شود."@fa ;
+    skos:scopeNote "A three-dimensional ornamental architectural element; it may also be analyzed as a surface system."@en, "عنصر تزیینی سه‌بعدی معماری که می‌تواند به‌عنوان سامانه‌ای سطحی نیز تحلیل شود."@fa ;
     skos:broader ia:architectural_components ;
     skos:related ia:muqarnas_surface_system .
 
-ia:muqarnas_surface_system
-    a skos:Concept ;
+ia:muqarnas_surface_system a skos:Concept ;
     skos:inScheme ia:scheme ;
     skos:prefLabel "Muqarnas as a surface system"@en, "مقرنس به‌مثابهٔ سامانهٔ سطحی"@fa ;
     skos:broader ia:architectural_forms ;
     skos:related ia:muqarnas .
 
-ia:pishtaq
-    a skos:Concept ;
+ia:pishtaq a skos:Concept ;
     skos:inScheme ia:scheme ;
     skos:prefLabel "Pishtaq"@en, "پیشطاق"@fa ;
     skos:broader ia:architectural_components .
 
-ia:courtyard
-    a skos:Concept ;
+ia:courtyard a skos:Concept ;
     skos:inScheme ia:scheme ;
     skos:prefLabel "Courtyard"@en, "حیاط"@fa ;
     skos:broader ia:architectural_components .
 
-ia:architectural_forms
-    a skos:Concept ;
+ia:architectural_forms a skos:Concept ;
     skos:inScheme ia:scheme ;
-    skos:prefLabel "Architectural forms"@en, "فرم‌های معماری"@fa ;
-    skos:narrower ia:arch_forms, ia:muqarnas_surface_system .
+    skos:prefLabel "Architectural forms"@en, "فرم‌های معماری"@fa .
 
-ia:arch_forms
-    a skos:Concept ;
+ia:arch_forms a skos:Concept ;
     skos:inScheme ia:scheme ;
     skos:prefLabel "Arch forms"@en, "گونه‌های قوس"@fa ;
     skos:altLabel "Chafd forms"@en ;
     skos:broader ia:architectural_forms .
 
-ia:vaulting_systems
-    a skos:Concept ;
+ia:vaulting_systems a skos:Concept ;
     skos:inScheme ia:scheme ;
     skos:prefLabel "Vaulting systems"@en, "سامانه‌های طاق"@fa .
 
-ia:pre_islamic_styles
-    a skos:Concept ;
+ia:pre_islamic_styles a skos:Concept ;
     skos:inScheme ia:scheme ;
-    skos:prefLabel "Pre-Islamic styles and periods"@en, "سبک‌ها و دوره‌های پیش از اسلام"@fa ;
-    skos:narrower ia:parsian, ia:parthian, ia:sasanian .
+    skos:prefLabel "Pre-Islamic styles and periods"@en, "سبک‌ها و دوره‌های پیش از اسلام"@fa .
 
-ia:parsian
-    a skos:Concept ;
+ia:parsian a skos:Concept ;
     skos:inScheme ia:scheme ;
     skos:prefLabel "Parsian"@en, "پارسی"@fa ;
     skos:broader ia:pre_islamic_styles .
 
-ia:parthian
-    a skos:Concept ;
+ia:parthian a skos:Concept ;
     skos:inScheme ia:scheme ;
     skos:prefLabel "Parthian"@en, "اشکانی"@fa ;
     skos:broader ia:pre_islamic_styles .
 
-ia:sasanian
-    a skos:Concept ;
+ia:sasanian a skos:Concept ;
     skos:inScheme ia:scheme ;
     skos:prefLabel "Sasanian"@en, "ساسانی"@fa ;
     skos:broader ia:pre_islamic_styles .
 
-ia:islamic_styles
-    a skos:Concept ;
+ia:islamic_styles a skos:Concept ;
     skos:inScheme ia:scheme ;
-    skos:prefLabel "Islamic styles and periods"@en, "سبک‌ها و دوره‌های اسلامی"@fa ;
-    skos:narrower ia:khorasani, ia:razi, ia:azari, ia:isfahani .
+    skos:prefLabel "Islamic styles and periods"@en, "سبک‌ها و دوره‌های اسلامی"@fa .
 
-ia:khorasani
-    a skos:Concept ;
+ia:khorasani a skos:Concept ;
     skos:inScheme ia:scheme ;
     skos:prefLabel "Khorasani style"@en, "سبک خراسانی"@fa ;
     skos:broader ia:islamic_styles .
 
-ia:razi
-    a skos:Concept ;
+ia:razi a skos:Concept ;
     skos:inScheme ia:scheme ;
     skos:prefLabel "Razi style"@en, "سبک رازی"@fa ;
     skos:broader ia:islamic_styles .
 
-ia:azari
-    a skos:Concept ;
+ia:azari a skos:Concept ;
     skos:inScheme ia:scheme ;
     skos:prefLabel "Azari style"@en, "سبک آذری"@fa ;
     skos:broader ia:islamic_styles .
 
-ia:isfahani
-    a skos:Concept ;
+ia:isfahani a skos:Concept ;
     skos:inScheme ia:scheme ;
     skos:prefLabel "Isfahani style"@en, "سبک اصفهانی"@fa ;
     skos:broader ia:islamic_styles .

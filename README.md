@@ -55,7 +55,65 @@
 4. **المان‌ها و اجزاء**
 5. **سبک و دوره**
 
-هر مفهوم می‌تواند برچسب فارسی و انگلیسی، اصطلاحات جایگزین، یادداشت دامنه و روابط سلسله‌مراتبی داشته باشد. در صورت بررسی و تأیید شناسهٔ متناظر، از نگاشت‌های SKOS مانند `skos:exactMatch` و `skos:closeMatch` برای پیوند به AAT و ویکی‌داده استفاده می‌کنیم. TGN عمدتاً واژگان جغرافیایی است؛ بنابراین پیوند به آن باید برای مکان‌ها و موجودیت‌های جغرافیاییِ پروژه‌ها باشد، نه به‌عنوان تطبیق مستقیم اصطلاحات معماری. تا زمان تأیید، شناسهٔ خارجی حدس زده یا درج نمی‌شود.
+هر مفهوم می‌تواند برچسب فارسی و انگلیسی، اصطلاحات جایگزین، یادداشت دامنه و روابط سلسله‌مراتبی داشته باشد. برای سلسله‌مراتب، در فایل Turtle فقط `skos:broader` را روی مفهوم خاص‌تر ثبت می‌کنیم؛ `skos:narrower` رابطهٔ معکوس آن است و لازم نیست هر دو جهت را تکرار کنیم. دو نگاشت نمونهٔ بررسی‌شده به ویکی‌داده با `skos:exactMatch` در فایل آمده‌اند. این رابطه را فقط وقتی به کار ببرید که دو مفهوم واقعاً هم‌معنا باشند؛ برای تطبیق تقریبی از `skos:closeMatch` استفاده کنید. پیوند به AAT نیز پس از بررسی شناسه و مفهوم متناظر افزوده می‌شود. TGN عمدتاً واژگان جغرافیایی است؛ بنابراین پیوند به آن باید برای مکان‌ها و موجودیت‌های جغرافیاییِ پروژه‌ها باشد، نه به‌عنوان تطبیق مستقیم اصطلاحات معماری. شناسهٔ خارجی را حدس نزنید.
+
+نمودار زیر نمایش ساده‌شدهٔ ساختار اصطلاح‌نامه است. پیکان‌ها از مفهوم عام به خاص‌اند؛ در Turtle، رابطهٔ `skos:broader` از مفهوم خاص به عام ثبت می‌شود.
+
+```mermaid
+graph TD
+    root["واژگان معماری ایران | Iranian Architecture"]
+    root --> technique["تکنیک | Technique"]
+    root --> materials["متریال و مصالح | Materials"]
+    root --> use["کاربرد | Use"]
+    root --> elements["المان‌ها و اجزاء | Elements and components"]
+    root --> styles["سبک و دوره | Styles and periods"]
+
+    technique --> techniques["فنون ساخت | Construction techniques"]
+    techniques --> bricklaying["آجرکاری | Bricklaying"]
+    techniques --> tilework["کاشی‌کاری | Tilework"]
+    techniques --> vault_construction["اجرای طاق | Vault construction"]
+    techniques --> dome_construction["اجرای گنبد | Dome construction"]
+    techniques --> muqarnas_construction["اجرای مقرنس | Muqarnas construction"]
+
+    materials --> building_materials["مصالح ساختمانی | Building materials"]
+    building_materials --> brick["آجر | Brick"]
+    building_materials --> stone["سنگ | Stone"]
+    building_materials --> tile["کاشی | Tile"]
+    building_materials --> gypsum["گچ | Gypsum"]
+    building_materials --> wood["چوب | Wood"]
+    building_materials --> adobe["خشت | Adobe"]
+
+    use --> building_use["کاربری بنا | Building use"]
+    building_use --> worship["نیایش | Worship"]
+    building_use --> commerce["تجارت | Commerce"]
+    building_use --> residence["سکونت | Residence"]
+    building_use --> recreation["فراغت و تفرج | Recreation"]
+
+    elements --> building_types["گونه‌های بنا | Building types"]
+    building_types --> mosque["مسجد | Mosque"]
+    building_types --> caravanserai["کاروانسرا | Caravanserai"]
+    building_types --> persian_garden["باغ ایرانی | Persian garden"]
+    elements --> components["اجزاء معماری | Architectural components"]
+    components --> iwan["ایوان | Iwan"]
+    components --> dome["گنبد | Dome"]
+    components --> muqarnas["مقرنس | Muqarnas"]
+    components --> pishtaq["پیشطاق | Pishtaq"]
+    components --> courtyard["حیاط | Courtyard"]
+    elements --> forms["فرم‌های معماری | Architectural forms"]
+    forms --> arch_forms["گونه‌های قوس | Arch forms"]
+    forms --> muqarnas_surface["مقرنس به‌مثابهٔ سامانهٔ سطحی | Muqarnas surface system"]
+    elements --> vaulting_systems["سامانه‌های طاق | Vaulting systems"]
+
+    styles --> pre_islamic["سبک‌ها و دوره‌های پیش از اسلام | Pre-Islamic styles and periods"]
+    pre_islamic --> parsian["پارسی | Parsian"]
+    pre_islamic --> parthian["اشکانی | Parthian"]
+    pre_islamic --> sasanian["ساسانی | Sasanian"]
+    styles --> islamic["سبک‌ها و دوره‌های اسلامی | Islamic styles and periods"]
+    islamic --> khorasani["سبک خراسانی | Khorasani"]
+    islamic --> razi["سبک رازی | Razi"]
+    islamic --> azari["سبک آذری | Azari"]
+    islamic --> isfahani["سبک اصفهانی | Isfahani"]
+```
 
 ### هستی‌شناسی و دادهٔ پیوندی
 
@@ -76,11 +134,12 @@
 
 فرآيند Pull Request معمولا برای پروژه های بزرگتر است که نياز به نظارت دقيقتری دارند . 
 شکل ساده تر که فعلا مورد نظر ماست بسيار ساده تر است و در سه مرحله انجام ميشود .
-1- بعد از هر تغيير در محتوای پروژه فايلهای تغيير يافته را با دستور add مشخص می کنيم .
-2- با دستور commit توضيح بسيار مختصری در مورد تغيير انجام شده ثبت می کنيم .
-3- با دستور push تغييرات انجام شده را به سمت ريپازيتوری مرکزی هدايت می کنيم.
 
-بايد توجه داشته باشطد که در اين وضعيت قبل از هر کاری لازم است پروژه را pull کنيد تا در يک کپی از جديدترين نسخه پروژه به سيستم شما منتقل شود. اين موضوع بسيار مهمی است که بايد به آن توجه داشت و با چند بار تمرين همه ابهام های مرتبط برطرف خواهند شد .
+- بعد از هر تغيير در محتوای پروژه فايلهای تغيير يافته را با دستور add مشخص می کنيم .
+- با دستور commit توضيح بسيار مختصری در مورد تغيير انجام شده ثبت می کنيم .
+- با دستور push تغييرات انجام شده را به سمت ريپازيتوری مرکزی هدايت می کنيم.
+
+بايد توجه داشته باشيد که در اين وضعيت قبل از هر کاری لازم است پروژه را pull کنيد تا در يک کپی از جديدترين نسخه پروژه به سيستم شما منتقل شود. اين موضوع بسيار مهمی است که بايد به آن توجه داشت و با چند بار تمرين همه ابهام های مرتبط برطرف خواهند شد .
 
 ### وضعیت پروژه
 
@@ -138,7 +197,7 @@ The starter thesaurus in [`common/thesaurus.ttl`](common/thesaurus.ttl) uses SKO
 4. **Elements and components**
 5. **Styles and periods**
 
-Concepts may have Persian and English labels, alternative labels, scope notes, and hierarchical relationships. Once an external identifier has been checked, SKOS mappings such as `skos:exactMatch` and `skos:closeMatch` can link concepts to the Getty Art & Architecture Thesaurus (AAT) and Wikidata. TGN is primarily a geographic vocabulary; use it for places and geographic entities in project data rather than as a direct match for architectural terms. Do not guess or add unverified external identifiers.
+Concepts may have Persian and English labels, alternative labels, scope notes, and hierarchical relationships. For hierarchy, the Turtle file asserts only `skos:broader` on the more specific concept; `skos:narrower` is its inverse, so there is no need to duplicate both directions. Two verified Wikidata mappings are included as examples using `skos:exactMatch`. Use that property only for concepts that are genuinely equivalent; use `skos:closeMatch` for approximate mappings. AAT mappings can be added after verifying the identifier and matching concept. TGN is primarily a geographic vocabulary; use it for places and geographic entities in project data rather than as a direct match for architectural terms. Do not guess external identifiers. The bilingual Mermaid diagram above visualizes the five facets and their hierarchy.
 
 ### Ontology and Linked Data
 
