@@ -47,15 +47,18 @@
 
 ### اصطلاح‌نامهٔ مشترک
 
-اصطلاح‌نامهٔ اولیه در [`common/thesaurus.ttl`](common/thesaurus.ttl) به Turtle و با الگوی SKOS ارائه شده است. ساختار آغازین آن پنج رده دارد:
+اصطلاح‌نامهٔ اولیه در [`common/thesaurus.ttl`](common/thesaurus.ttl) به Turtle و با الگوی SKOS ارائه شده است. ساختار آن شش رده دارد:
 
 1. **تکنیک**
 2. **متریال و مصالح**
 3. **کاربرد**
 4. **المان‌ها و اجزاء**
 5. **سبک و دوره**
+6. **منابع و اسناد مستند**
 
-هر مفهوم می‌تواند برچسب فارسی و انگلیسی، اصطلاحات جایگزین، یادداشت دامنه و روابط سلسله‌مراتبی داشته باشد. برای سلسله‌مراتب، در فایل Turtle فقط `skos:broader` را روی مفهوم خاص‌تر ثبت می‌کنیم؛ `skos:narrower` رابطهٔ معکوس آن است و لازم نیست هر دو جهت را تکرار کنیم. دو نگاشت نمونهٔ بررسی‌شده به ویکی‌داده با `skos:exactMatch` در فایل آمده‌اند. این رابطه را فقط وقتی به کار ببرید که دو مفهوم واقعاً هم‌معنا باشند؛ برای تطبیق تقریبی از `skos:closeMatch` استفاده کنید. پیوند به AAT نیز پس از بررسی شناسه و مفهوم متناظر افزوده می‌شود. TGN عمدتاً واژگان جغرافیایی است؛ بنابراین پیوند به آن باید برای مکان‌ها و موجودیت‌های جغرافیاییِ پروژه‌ها باشد، نه به‌عنوان تطبیق مستقیم اصطلاحات معماری. شناسهٔ خارجی را حدس نزنید.
+ردهٔ اسناد، نوع سند مبدأ را بر اساس شکل یا کارکرد پوشش می‌دهد؛ از جمله عکس، نگاتیو، اسلاید، نقشه، پلان و عکس هوایی. این رده‌بندی یک چارچوب آغازین و قابل‌گسترش برای شناسایی انواع منابع دیجیتال در مجموعه‌های GLAM است، نه فهرستی نهایی.
+
+هر مفهوم می‌تواند برچسب فارسی و انگلیسی، اصطلاحات جایگزین، یادداشت دامنه و روابط سلسله‌مراتبی داشته باشد. برای سلسله‌مراتب، در فایل Turtle فقط `skos:broader` را روی مفهوم خاص‌تر ثبت می‌کنیم؛ `skos:narrower` رابطهٔ معکوس آن است و لازم نیست هر دو جهت را تکرار کنیم. نگاشت‌های `skos:exactMatch` به AAT برای «اسناد بر اساس شکل» (300137974) و «اسناد بر اساس کارکرد» (300137955) و نیز نگاشت‌های نمونهٔ ویکی‌داده در فایل آمده‌اند. این رابطه را فقط وقتی به کار ببرید که دو مفهوم واقعاً هم‌معنا باشند؛ برای تطبیق تقریبی از `skos:closeMatch` استفاده کنید. TGN عمدتاً واژگان جغرافیایی است؛ بنابراین پیوند به آن باید برای مکان‌ها و موجودیت‌های جغرافیاییِ پروژه‌ها باشد، نه به‌عنوان تطبیق مستقیم اصطلاحات معماری. شناسهٔ خارجی را حدس نزنید.
 
 نمودار زیر نمایش ساده‌شدهٔ ساختار اصطلاح‌نامه است. پیکان‌ها از مفهوم عام به خاص‌اند؛ در Turtle، رابطهٔ `skos:broader` از مفهوم خاص به عام ثبت می‌شود.
 
@@ -67,6 +70,7 @@ graph TD
     root --> use["کاربرد | Use"]
     root --> elements["المان‌ها و اجزاء | Elements and components"]
     root --> styles["سبک و دوره | Styles and periods"]
+    root --> documents["منابع و اسناد مستند | Documentary resources"]
 
     technique --> techniques["فنون ساخت | Construction techniques"]
     techniques --> bricklaying["آجرکاری | Bricklaying"]
@@ -113,7 +117,30 @@ graph TD
     islamic --> razi["سبک رازی | Razi"]
     islamic --> azari["سبک آذری | Azari"]
     islamic --> isfahani["سبک اصفهانی | Isfahani"]
+
+    documents --> by_form["اسناد بر اساس شکل | Documents by form"]
+    by_form --> photographs["عکس‌ها | Photographs"]
+    photographs --> aerial_photographs["عکس‌های هوایی | Aerial photographs"]
+    by_form --> negatives["نگاتیوهای عکاسی | Photographic negatives"]
+    by_form --> slides["اسلایدهای عکاسی | Photographic slides"]
+    by_form --> maps["نقشه‌ها | Maps"]
+    by_form --> drawings["ترسیم‌های معماری | Architectural drawings"]
+    drawings --> plans["پلان‌های معماری | Architectural plans"]
+    documents --> by_function["اسناد بر اساس کارکرد | Documents by function"]
 ```
+
+### شناسایی منابع GLAM و اولویت IIIF
+
+پروژهٔ GLAM منابع معماری ایران را در مجموعه‌های سراسر جهان شناسایی و مشخصات منبع و سند را ثبت می‌کند. **اولویت نخست، منابعی هستند که از طریق IIIF قابل دسترسی‌اند**: در صورت وجود، شناسهٔ پایدار منبع، نشانی Manifest، نسخهٔ IIIF، مشخصات مؤسسه و اطلاعات حقوقی ثبت و Manifest بررسی می‌شود.
+
+اگر منبع در حال حاضر از طریق IIIF ارائه نشده باشد، پیش از هر انتقال یا میزبانی تازه، یک Issue در مخزن ایجاد کنید تا مسیر دسترسی بررسی شود. بررسی باید شامل موارد زیر باشد:
+
+1. مستندسازی API یا روش مجاز دریافت فراداده و فایل از GLAM؛
+2. ثبت URL پایدار منبع، مشخصات مؤسسه، API و مستندات فنی، وضعیت IIIF، شناسه‌ها و اطلاعات مجوز/حقوق؛
+3. بررسی امکان ساخت Manifest با همکاری GLAM یا استفاده از یک سرویس میزبانی IIIF؛
+4. ارزیابی Internet Archive فقط برای محتوایی که بارگذاری و بازتوزیع آن از نظر حقوقی مجاز است. ایجاد Manifest در Internet Archive را تضمین‌شده فرض نکنید؛ پس از بارگذاری احتمالی، وجود، صحت و پایداری Manifest باید جداگانه بررسی شود.
+
+برای ثبت چنین درخواستی، [Issue منبع فاقد IIIF را با قالب آماده باز کنید](https://github.com/Iranian-Architecture-research/Experimental-Case-Study/issues/new?template=non_iiif_resource.yml). تا زمان تأیید مجوز، سیاست مؤسسه و حقوق اثر، فایل منبع را بارگذاری یا بازتوزیع نکنید. اگر امکان نگهداری فایل وجود ندارد، ابتدا فقط فراداده و پیوند پایدار را طبق شرایط منبع ثبت کنید.
 
 ### هستی‌شناسی و دادهٔ پیوندی
 
@@ -189,15 +216,31 @@ Project directories may be created and named as the groups begin their work. Eac
 
 ### Shared thesaurus
 
-The starter thesaurus in [`common/thesaurus.ttl`](common/thesaurus.ttl) uses SKOS in Turtle and has five facets:
+The starter thesaurus in [`common/thesaurus.ttl`](common/thesaurus.ttl) uses SKOS in Turtle and has six facets:
 
 1. **Technique**
 2. **Materials and substances**
 3. **Use**
 4. **Elements and components**
 5. **Styles and periods**
+6. **Documentary resources**
 
-Concepts may have Persian and English labels, alternative labels, scope notes, and hierarchical relationships. For hierarchy, the Turtle file asserts only `skos:broader` on the more specific concept; `skos:narrower` is its inverse, so there is no need to duplicate both directions. Two verified Wikidata mappings are included as examples using `skos:exactMatch`. Use that property only for concepts that are genuinely equivalent; use `skos:closeMatch` for approximate mappings. AAT mappings can be added after verifying the identifier and matching concept. TGN is primarily a geographic vocabulary; use it for places and geographic entities in project data rather than as a direct match for architectural terms. Do not guess external identifiers. The bilingual Mermaid diagram above visualizes the five facets and their hierarchy.
+The documentary facet classifies the form or function of source documents, including photographs, negatives, slides, maps, plans, and aerial photographs. It is an extensible starting scaffold for discovering digital resource types in GLAM collections, not a closed list.
+
+Concepts may have Persian and English labels, alternative labels, scope notes, and hierarchical relationships. For hierarchy, the Turtle file asserts only `skos:broader` on the more specific concept; `skos:narrower` is its inverse, so there is no need to duplicate both directions. AAT `skos:exactMatch` mappings for “documents by form” (300137974) and “documents by function” (300137955), as well as example Wikidata mappings, are included. Use `exactMatch` only for genuinely equivalent concepts; use `skos:closeMatch` for approximate mappings. TGN is primarily a geographic vocabulary; use it for places and geographic entities in project data rather than as a direct match for architectural terms. Do not guess external identifiers. The bilingual Mermaid diagram above visualizes the six facets and their hierarchy.
+
+### GLAM discovery and IIIF-first workflow
+
+The GLAM project will identify Iranian architecture resources in collections around the world and record their source and document specifications. **Resources available through IIIF are the first priority**: record the persistent source identifier, Manifest URL, IIIF version, institution, and rights information, and validate the Manifest when available.
+
+If a resource is not currently available through IIIF, open a repository Issue before planning a new transfer or hosting route. The investigation should:
+
+1. document the GLAM API or permitted method for obtaining metadata and files;
+2. record the persistent source URL, institution, API and technical documentation, IIIF status, identifiers, and rights/licensing information;
+3. assess whether the GLAM can provide a Manifest or whether a IIIF hosting service is appropriate;
+4. consider Internet Archive only for material that may legally be uploaded and redistributed. Do not assume it will automatically provide a Manifest; verify that a Manifest exists, works, and remains available.
+
+Open a [non-IIIF resource issue using the prepared form](https://github.com/Iranian-Architecture-research/Experimental-Case-Study/issues/new?template=non_iiif_resource.yml). Do not upload or redistribute source files until the institution’s policy, rights, and permissions have been checked. If files cannot be hosted, begin by recording metadata and stable links in accordance with the source’s terms.
 
 ### Ontology and Linked Data
 
