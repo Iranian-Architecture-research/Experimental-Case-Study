@@ -47,11 +47,15 @@ ia:documents_by_form a skos:Concept ;
 ia:photographs a skos:Concept ;
     skos:inScheme ia:scheme ;
     skos:prefLabel "Photographs"@en, "عکس‌ها"@fa ;
+    skos:exactMatch aat:300046300 ;
+    skos:broadMatch aat:300191091 ;
     skos:broader ia:documents_by_form .
 
 ia:aerial_photographs a skos:Concept ;
     skos:inScheme ia:scheme ;
     skos:prefLabel "Aerial photographs"@en, "عکس‌های هوایی"@fa ;
+    skos:exactMatch aat:300053443 ;
+    skos:broadMatch aat:300138798 ;
     skos:broader ia:photographs .
 
 ia:photographic_negatives a skos:Concept ;
@@ -67,6 +71,8 @@ ia:photographic_slides a skos:Concept ;
 ia:maps a skos:Concept ;
     skos:inScheme ia:scheme ;
     skos:prefLabel "Maps"@en, "نقشه‌ها"@fa ;
+    skos:exactMatch aat:300028094 ;
+    skos:broadMatch aat:300028052, aat:300026848 ;
     skos:broader ia:documents_by_form .
 
 ia:architectural_drawings a skos:Concept ;
@@ -77,6 +83,8 @@ ia:architectural_drawings a skos:Concept ;
 ia:plans a skos:Concept ;
     skos:inScheme ia:scheme ;
     skos:prefLabel "Architectural plans"@en, "پلان‌های معماری"@fa ;
+    skos:exactMatch aat:300034104 ;
+    skos:broadMatch aat:300034017 ;
     skos:broader ia:architectural_drawings .
 
 ia:documents_by_function a skos:Concept ;
@@ -85,6 +93,30 @@ ia:documents_by_function a skos:Concept ;
     skos:scopeNote "A starter grouping for documents classified by intended function. Add narrower concepts only when a project's use cases and authoritative mappings are documented."@en,
         "گروه‌بندی آغازین اسناد بر پایهٔ کارکرد موردنظر؛ مفاهیم خاص‌تر فقط پس از مستندسازی نیاز پروژه و نگاشت معتبر افزوده شوند."@fa ;
     skos:exactMatch aat:300137955 .
+
+
+ia:certificate a skos:Concept ;
+    skos:inScheme ia:scheme ;
+    skos:prefLabel "Certificate"@en, "گواهینامه/مجوز"@fa ;
+    skos:exactMatch aat:300026841 ;
+    skos:broadMatch aat:300137955 ;
+    skos:broader ia:documents_by_function .
+
+    
+ia:gift_certificate a skos:Concept ;
+    skos:inScheme ia:scheme ;
+    skos:prefLabel "gift certificates"@en, "گواهینامه‌های بخشش/انفاق"@fa ;
+    skos:exactMatch aat:300195422 ;
+    skos:broadMatch aat:300026841 ;
+    skos:broader ia:certificate .
+
+ia:endownment_certificate a skos:Concept ;
+    skos:inScheme ia:scheme ;
+    skos:prefLabel "endowment certificates"@en, "وقف‌نامه"@fa ;
+    skos:broadMatch aat:300195422 ;
+    skos:broader ia:gift_certificate .    
+
+
 
 ia:construction_techniques a skos:Concept ;
     skos:inScheme ia:scheme ;

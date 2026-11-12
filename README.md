@@ -127,6 +127,9 @@ graph TD
     by_form --> drawings["ترسیم‌های معماری | Architectural drawings"]
     drawings --> plans["پلان‌های معماری | Architectural plans"]
     documents --> by_function["اسناد بر اساس کارکرد | Documents by function"]
+    by_function --> certificate["گواهینامه/مجوز | Certificate"]
+    certificate --> gift_certificate["گواهینامه‌های بخشش/انفاق | Gift certificates"]
+    gift_certificate --> endowment_certificate["وقف‌نامه | Endowment certificates"]
 ```
 
 ### شناسایی منابع GLAM و اولویت IIIF
