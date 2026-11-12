@@ -114,6 +114,7 @@ ia:endownment_certificate a skos:Concept ;
     skos:inScheme ia:scheme ;
     skos:prefLabel "endowment certificates"@en, "وقف‌نامه"@fa ;
     skos:broadMatch aat:300195422 ;
+    skos:exactMatch wd:Q142121527;
     skos:broader ia:gift_certificate .    
 
 
